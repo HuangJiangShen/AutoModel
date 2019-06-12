@@ -87,7 +87,10 @@ public class AutoModel {
         if (type.indexOf("varchar") > -1) {
             return "String";
         }
-        if (type.indexOf("detetime") > -1) {
+        if (type.indexOf("datetime") > -1) {
+            if (!(inportJar.indexOf("import java.util.Date;") > -1)) {
+                inportJar += "import java.util.Date;\n";
+            }
             return "Date";
         }
         if (type.indexOf("decimal") > -1) {
